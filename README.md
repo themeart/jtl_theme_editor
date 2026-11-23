@@ -1,2 +1,3 @@
-# jtl_theme_editor
-JTL Theme Editor for Nginx Server
+# JTL Theme Editor
+
+JTL Theme Editor überarbeitet, funktioniert ohne Probleme auch auf einem Nginx Server.
