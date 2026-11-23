@@ -1,0 +1,24 @@
+{
+    "name": "jtl/jtl_theme_editor",
+    "type": "app",
+    "description": "Editor for JTL Templates",
+    "homepage": "https://github.com/themeart/jtl_theme_editor",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Themeart GmbH",
+            "role": "Maintainer"
+        },
+        {
+            "name": "JTL Software GmbH",
+            "email": "info@jtl-software.de",
+            "homepage": "https://www.jtl-software.de",
+            "role": "Founder"
+        }
+    ],
+    "require": {
+        "oyejorge/less.php": "~1.7",
+        "kevinlebrun/colors.php": "0.*",
+        "scssphp/scssphp": "^1.0.3"
+    }
+}
