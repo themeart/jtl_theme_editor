@@ -110,7 +110,30 @@ var ThemeCompiler = new function () {
         $('#file-state').text(label).toggleClass('is-dirty', !!dirty);
     };
 
+    this.alignWithSidebar = function () {
+        var sidebar = document.getElementById('sidebar'),
+            panel = document.getElementById('jtl-template-editor');
+        if (!panel) {
+            return;
+        }
+        panel.style.left = sidebar && window.innerWidth >= 992
+            ? Math.max(0, sidebar.getBoundingClientRect().right) + 'px'
+            : '0px';
+        window.requestAnimationFrame(function () { editor.refresh(); });
+    };
+
     this.init = function () {
+        var panel = document.getElementById('jtl-template-editor'),
+            sidebar = document.getElementById('sidebar');
+        document.body.appendChild(panel);
+        self.alignWithSidebar();
+        window.addEventListener('resize', self.alignWithSidebar);
+        if (sidebar) {
+            sidebar.addEventListener('transitionend', self.alignWithSidebar);
+            if (window.ResizeObserver) {
+                new ResizeObserver(self.alignWithSidebar).observe(sidebar);
+            }
+        }
         self.updateEditorTheme();
         document.addEventListener('colorThemeChanged', self.updateEditorTheme);
         if (window.matchMedia) {
